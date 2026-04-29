@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Котостудия</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand brand-font" href="#">Котостудия</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#about">О нас</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gallery">Галерея</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#booking">Запись на съёмку</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-section d-flex align-items-center">
+    <div class="container text-center">
+      <h1 class="display-3 brand-font">Котостудия</h1>
+      <p class="lead">Мы фотографируем котиков</p>
+    </div>
+  </header>
+
+  <section id="about" class="py-5">
+    <div class="container">
+      <h2 class="section-title">О нас</h2>
+      <p class="fs-5 text-muted">Добро пожаловать в «Котостудию» — пространство, где кошки становятся моделями! Мы создаём волшебные кадры, которые передают характер и грацию вашего пушистого друга.</p>
+    </div>
+  </section>
+
+  <section id="gallery" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title">Галерея</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm">
+            <img src="https://i.pinimg.com/736x/c8/cc/24/c8cc24bba37a25c009647b8875aae0e3.jpg" class="card-img-top img-fluid" alt="Котик 1">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYRjzG1juYDj2--nl03TvZZifIe5Db2Yw_dw&s" class="card-img-top img-fluid" alt="Котик 2">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhrm2xZqvJ3qwnoeGVGVt6vfiyGRakJRpLsA&s" class="card-img-top img-fluid" alt="Котик 3">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="booking" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Записаться на фотосессию</h2>
+      <form id="bookingForm" novalidate>
+        <div class="mb-3">
+          <label for="name" class="form-label">Имя</label>
+          <input type="text" class="form-control" id="name" required>
+          <div class="invalid-feedback">Пожалуйста, введите ваше имя.</div>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required>
+          <div class="invalid-feedback">Введите корректный email.</div>
+        </div>
+        <div class="mb-3">
+          <label for="catName" class="form-label">Имя котика</label>
+          <input type="text" class="form-control" id="catName" required>
+          <div class="invalid-feedback">Скажите, как зовут вашего котика.</div>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Сообщение (необязательно)</label>
+          <textarea class="form-control" id="message" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить заявку</button>
+      </form>
+      <div id="bookingSuccess" class="alert alert-success mt-3 d-none" role="alert">
+        Спасибо! Мы свяжемся с вами в ближайшее время.
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 bg-dark text-white text-center">
+    <div class="container">
+      <small>&copy; 2023 Котостудия. Музыкальная служба</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function() {
+      const form = document.getElementById('bookingForm');
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        form.classList.add('was-validated');
+        if (form.checkValidity()) {
+          document.getElementById('bookingSuccess').classList.remove('d-none');
+          form.reset();
+          form.classList.remove('was-validated');
+          setTimeout(function() {
+            document.getElementById('bookingSuccess').classList.add('d-none');
+          }, 4000);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+
